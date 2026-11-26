@@ -32,7 +32,7 @@ function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           type="button"
         >
-          <Icon name={menuOpen ? 'arrow' : 'menu'} size={23} />
+          <Icon name={menuOpen ? 'close' : 'menu'} size={23} />
         </button>
         <div className={`nav-content${menuOpen ? ' is-open' : ''}`}>
           <div className="nav-links">

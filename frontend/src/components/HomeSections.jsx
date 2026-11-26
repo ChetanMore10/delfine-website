@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from './Icon.jsx'
 import { BusinessHours, ContactMethods, OfficeAddress } from './ContactDetails.jsx'
@@ -79,7 +80,7 @@ function CompanyIntro() {
           <SectionHeading eyebrow="A LITTLE ABOUT US" title={<>Technology should move<br className="desktop-break" /> your business forward.</>} />
           <p>Delfine India Technology partners with businesses to create practical, purposeful digital solutions. From the first conversation to the final details, we bring people and technology together to make progress feel possible.</p>
           <p>Whether you are building something new or improving what already works, we focus on understanding your needs and shaping a solution that fits.</p>
-          <a className="text-link" href="#contact">Learn More <Icon name="arrowUpRight" size={17} /></a>
+          <Link className="text-link" to="/about">Learn More <Icon name="arrowUpRight" size={17} /></Link>
         </div>
       </div>
     </section>
@@ -191,17 +192,25 @@ function CallToAction() {
 }
 
 function Contact({ showHeading = true }) {
+  const [formMessage, setFormMessage] = useState('')
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    setFormMessage('Thanks for your interest. This demo form does not send or store messages yet. Please contact us by phone or email.')
+  }
+
   return (
     <section className="contact-section section-pad" id="contact">
       <div className="container contact-layout">
         <div className="contact-copy">{showHeading && <SectionHeading eyebrow="GET IN TOUCH" title="Let’s start a conversation." text="Share a little about your project or challenge. Our team will be glad to hear from you." />}<div className="contact-detail"><span className="contact-detail-icon"><Icon name="compass" size={20} /></span><div><strong>Visit our office</strong><p><OfficeAddress /></p></div></div><div className="contact-detail"><span className="contact-detail-icon"><Icon name="support" size={20} /></span><div><strong>Phone & email</strong><p className="contact-methods"><ContactMethods /></p></div></div><BusinessHours /></div>
-        <form className="contact-form" id="contact-form" onSubmit={(event) => event.preventDefault()}>
+        <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
           <div className="form-heading"><h3>Tell us about your project</h3><p>Fields marked with * are required.</p></div>
           <div className="form-row"><label>Name *<input autoComplete="name" name="name" placeholder="Your name" required /></label><label>Email *<input autoComplete="email" name="email" placeholder="you@company.com" required type="email" /></label></div>
           <div className="form-row"><label>Phone<input autoComplete="tel" name="phone" placeholder="Your phone number (optional)" type="tel" /></label><label>Subject *<input name="subject" placeholder="How can we help?" required /></label></div>
           <label>Message *<textarea name="message" placeholder="A few details about what you have in mind..." required rows="4" /></label>
           <button className="button button-primary form-submit" type="submit">Send Message <Icon name="arrowUpRight" size={16} /></button>
           <p className="form-note">Frontend demo only — your message is not sent or stored.</p>
+          <p className="form-feedback" role="status" aria-live="polite">{formMessage}</p>
         </form>
       </div>
     </section>
