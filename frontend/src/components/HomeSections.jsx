@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom'
 import Icon from './Icon.jsx'
+import { BusinessHours, ContactMethods, OfficeAddress } from './ContactDetails.jsx'
+import { industries, projects } from '../data/homepageData.js'
 
 const services = [
   { icon: 'code', title: 'Software Development', text: 'Purpose-built software designed around your workflows, goals, and future growth.' },
@@ -15,21 +18,6 @@ const benefits = [
   ['Customer-centric approach', 'Your people, priorities, and outcomes guide how we shape each solution.'],
   ['Innovative thinking', 'We explore modern tools and approaches to solve real business challenges.'],
   ['Reliable support', 'A committed partner to help your solutions keep moving forward.'],
-]
-
-const industries = [
-  { icon: 'heart', title: 'Healthcare', text: 'Technology that helps care teams and patients stay connected.' },
-  { icon: 'bank', title: 'Banking & Finance', text: 'Secure digital experiences for a changing financial world.' },
-  { icon: 'graduation', title: 'Education', text: 'Connected learning tools for institutions and learners.' },
-  { icon: 'shopping', title: 'Retail', text: 'Better digital journeys for shoppers and retail teams.' },
-  { icon: 'factory', title: 'Manufacturing', text: 'Practical digital solutions for modern operations.' },
-  { icon: 'cpu', title: 'Technology', text: 'Scalable products that help technology businesses grow.' },
-]
-
-const projects = [
-  { tag: 'WEB APPLICATION', title: 'Business operations portal', text: 'A sample concept for bringing everyday business workflows into one clear workspace.', color: 'project-blue', icon: 'monitor' },
-  { tag: 'MOBILE EXPERIENCE', title: 'Connected care platform', text: 'A sample concept exploring more accessible, connected healthcare experiences.', color: 'project-cyan', icon: 'heart' },
-  { tag: 'CLOUD SOLUTION', title: 'Modern data foundation', text: 'A sample concept for a flexible cloud platform that can grow with a business.', color: 'project-navy', icon: 'layers' },
 ]
 
 function SectionHeading({ eyebrow, title, text, centered = false }) {
@@ -108,7 +96,7 @@ function Services() {
             <article className="service-card" key={service.title}>
               <div className="service-card-top"><span className="icon-tile"><Icon name={service.icon} /></span><span className="card-index">0{index + 1}</span></div>
               <h3>{service.title}</h3><p>{service.text}</p>
-              <a href="#contact" aria-label={`Discuss ${service.title}`}><Icon name="arrowUpRight" size={18} /></a>
+              <Link to="/contact" aria-label={`Discuss ${service.title}`}><Icon name="arrowUpRight" size={18} /></Link>
             </article>
           ))}
         </div>
@@ -123,7 +111,7 @@ function WhyChooseUs() {
       <div className="container why-layout">
         <div className="why-copy">
           <SectionHeading eyebrow="THE DELFINE DIFFERENCE" title={<>Good technology starts<br className="desktop-break" /> with good partnership.</>} text="We believe the best outcomes come from listening closely, working openly, and caring about the details." />
-          <a className="button button-primary" href="#contact">Let’s work together <Icon name="arrowUpRight" size={16} /></a>
+          <Link className="button button-primary" to="/contact">Let’s work together <Icon name="arrowUpRight" size={16} /></Link>
         </div>
         <div className="benefit-list">
           {benefits.map(([title, text], index) => (
@@ -202,11 +190,11 @@ function CallToAction() {
   )
 }
 
-function Contact() {
+function Contact({ showHeading = true }) {
   return (
     <section className="contact-section section-pad" id="contact">
       <div className="container contact-layout">
-        <div className="contact-copy"><SectionHeading eyebrow="GET IN TOUCH" title="Let’s start a conversation." text="Share a little about your project or challenge. Our team will be glad to hear from you." /><div className="contact-detail"><span className="contact-detail-icon"><Icon name="compass" size={20} /></span><div><strong>Visit our office</strong><p>Office No. 105, 1st Floor, Krishnai Plaza, above Domino's Pizza, near Kakde City, Karve Nagar, Pune, Maharashtra 411052, India.</p></div></div><div className="contact-detail"><span className="contact-detail-icon"><Icon name="support" size={20} /></span><div><strong>Phone & email</strong><p><a href="#contact-form">[Phone number to be added]</a><br /><a href="#contact-form">[Email address to be added]</a></p></div></div></div>
+        <div className="contact-copy">{showHeading && <SectionHeading eyebrow="GET IN TOUCH" title="Let’s start a conversation." text="Share a little about your project or challenge. Our team will be glad to hear from you." />}<div className="contact-detail"><span className="contact-detail-icon"><Icon name="compass" size={20} /></span><div><strong>Visit our office</strong><p><OfficeAddress /></p></div></div><div className="contact-detail"><span className="contact-detail-icon"><Icon name="support" size={20} /></span><div><strong>Phone & email</strong><p className="contact-methods"><ContactMethods /></p></div></div><BusinessHours /></div>
         <form className="contact-form" id="contact-form" onSubmit={(event) => event.preventDefault()}>
           <div className="form-heading"><h3>Tell us about your project</h3><p>Fields marked with * are required.</p></div>
           <div className="form-row"><label>Name *<input autoComplete="name" name="name" placeholder="Your name" required /></label><label>Email *<input autoComplete="email" name="email" placeholder="you@company.com" required type="email" /></label></div>
