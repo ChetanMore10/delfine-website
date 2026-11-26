@@ -193,16 +193,17 @@
 .contact-form { padding: 30px; border: 1px solid #e5ebf0; border-radius: 6px; background: #fff; box-shadow: 0 15px 45px #243d5410; }
 .form-heading { margin-bottom: 23px; }
 .form-heading h3 { margin: 0 0 6px; color: #17314c; font-size: 19px; letter-spacing: -.4px; }
-.form-heading p, .form-note { color: #8995a2; font-size: 10px; }
-.contact-form label { display: block; color: #33495f; font-size: 10px; font-weight: 650; }
+.form-heading p, .form-note { color: #78889a; font-size: 11px; }
+.contact-form label { display: block; color: #33495f; font-size: 12px; font-weight: 650; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
-.contact-form input, .contact-form textarea { width: 100%; margin-top: 7px; padding: 12px 13px; border: 1px solid #dfe6eb; border-radius: 4px; outline: none; background: #fbfcfd; color: #17314c; font: inherit; font-size: 11px; transition: border-color .18s ease, box-shadow .18s ease; }
+.contact-form input, .contact-form textarea { width: 100%; margin-top: 7px; padding: 12px 13px; border: 1px solid #dfe6eb; border-radius: 4px; outline: none; background: #fbfcfd; color: #17314c; font: inherit; font-size: 13px; transition: border-color .18s ease, box-shadow .18s ease; }
 .contact-form textarea { min-height: 102px; resize: vertical; }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: #a0aab5; }
 .contact-form input:focus, .contact-form textarea:focus { border-color: #3194c5; box-shadow: 0 0 0 3px #1387bc1a; }
 .contact-form > label { margin-bottom: 17px; }
 .form-submit { min-height: 44px; font-size: 11px; }
 .form-note { display: inline-block; margin: 0 0 0 11px; }
+.form-feedback { margin: 12px 0 0; color: #17653f; font-size: 12px; line-height: 1.6; }
 
 .site-footer { background: #0c2139; color: #fff; }
 .footer-main { display: grid; grid-template-columns: 1.4fr .7fr .9fr 1.1fr; gap: 50px; padding-top: 58px; padding-bottom: 47px; }
@@ -262,6 +263,7 @@
   .container { width: calc(100% - 38px); }
   .section-pad { padding: 56px 0; }
   .section-heading h2 { font-size: clamp(29px, 8vw, 34px); letter-spacing: -1.1px; }
+  .business-hours dl { grid-template-columns: 1fr; }
   .site-header { position: sticky; }
   .navbar { min-height: 68px; }
   .brand-word { font-size: 21px; }
