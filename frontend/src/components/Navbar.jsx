@@ -35,7 +35,10 @@ function Navbar() {
           <Icon name={menuOpen ? 'close' : 'menu'} size={23} />
         </button>
         <div className={`nav-content${menuOpen ? ' is-open' : ''}`}>
-          <div className="nav-links">
+          <div
+            className="flex flex-col items-stretch gap-0 nav:flex-row nav:items-center nav:gap-[27px]"
+            data-nav-links
+          >
             {links.map(([label, href]) => (
               <NavLink end={href === '/'} to={href} key={label} onClick={closeMenu}>{label}</NavLink>
             ))}

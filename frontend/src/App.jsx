@@ -9,12 +9,10 @@ import Projects from './pages/Projects.jsx'
 import Contact from './pages/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
-import './App.css'
-import './pages/Pages.css'
 
 function App() {
   return (
-    <>
+    <div className="min-h-screen bg-white text-ink antialiased">
       <ScrollToTop />
       <a className="skip-link" href="#main-content">Skip to content</a>
       <Navbar />
@@ -30,7 +28,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 
