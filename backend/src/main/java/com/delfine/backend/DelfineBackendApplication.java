@@ -8,6 +8,6 @@ public class DelfineBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DelfineBackendApplication.class, args);
+		System.err.println("Application Started Successfully..!");
 	}
-
 }
